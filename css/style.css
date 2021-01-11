@@ -1,0 +1,243 @@
+/* MENU
+0. general style
+1. slideshow
+    1.1 slideshow
+    1.2 navigation
+2. map
+3. application booking
+    3.1 booking form
+    3.2 signature (canvas)
+4. booking informations
+5. responsive  
+*/
+
+/*=============== 0. General style ===============*/
+body {
+    max-width: 950px;
+    margin: auto;
+}
+
+#slideshow, #map, #booking-form fieldset, #signature, #booking-info, .help-info {
+    border: solid 1px #FFF;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #000;
+    margin: 10px;  
+}
+
+h1, footer {
+    margin: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#map-and-booking {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    background: #FFF;
+    border: solid 1px #000;
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px #000;
+    font-weight: 600;
+    margin: auto;  
+}
+
+.help-info {
+    font-weight: 600;
+    color: red;
+    padding: 10px;
+    display: none;
+}
+
+/*=============== 1. Slideshow ===============*/
+/*= 1.1 Slideshow =*/
+#slideshow {
+    overflow: hidden;
+    position: relative;
+    background: rgba(89, 184, 89, 0.5); 
+}
+
+#slides-container {
+    display: flex;
+    transform: translateX(0px); /* par défaut : pas de translation du conteneur */
+}
+
+.slide {
+    display: flex;
+    background: rgba(89, 184, 89, 0.8);  
+}
+
+.slide:first-child {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slide:first-child h2 {
+    font-size: 1.8em;
+}
+
+figure {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:  100%;
+}
+
+figcaption {
+    flex: 1;
+    padding-right: 10px;
+    line-height: 30px;
+}
+
+figcaption p {
+    margin: 0;
+}
+
+figure img {
+    flex: 1;
+    box-shadow: 0 0 5px #FFF;
+}
+
+
+/*= 1.2 Navigation =*/
+.slideshow-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button-nav {
+    width: 36px;
+    height: 36px;
+    border: #FFF solid 1px;
+    border-radius: 25px;
+    background: #FFF url('../images/app/break.png') center center;
+    background-size: 35px 35px;
+    margin: 10px;
+    box-shadow: 2px 2px 5px #000; 
+}
+
+#slideshow-next {
+    background-image: url('../images/app/arrow-right.png');
+}
+
+#slideshow-prev {
+    background-image: url('../images/app/arrow-left.png');
+}
+
+#slideshow-play {
+    background-image: url('../images/app/play.png')
+}
+
+
+/*=============== 2. map ===============*/
+#map {
+    height: 450px;
+    border: solid 2px #000;
+    border-radius: 0;
+    flex: 1;
+}
+
+
+/*=============== 3. application booking ===============*/
+#appli-booking {
+    display: none;
+    flex: 1;
+    margin: 10px;
+}
+
+/*== 3.1 booking form ==*/
+#booking-form fieldset {
+    border-color: #000;
+}
+
+#booking-form legend {
+    font-size: 1.2em;
+}
+
+#form-help {
+    display: none;
+}
+
+/*== 3.2 signature (canvas) ==*/
+#signature {
+    position: relative;
+    border: double 4px #000;
+    border-radius: 0;
+    width: 280px; /* 300 (largeur par défaut du canvas) - padding*2 */
+    height: 130px; /* 150 (hauteur par défaut du canvas) - padding*2 */
+    padding: 10px;
+    display: none;
+}
+
+#signature-content {
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;   
+}
+
+#pencil {
+    width: 30px;
+}
+
+#signature-content p {
+    margin: 0;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#validate-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+#signature-help {
+    padding: 12px;
+}
+
+/*=============== 4. booking informations ===============*/
+#booking-info {
+    text-align: center;
+    padding: 10px;
+    display: none;
+    background: rgba(89, 184, 89, 0.8);  
+}
+
+/*=============== 5. responsive ===============*/
+@media all and (max-width: 768px) {
+    #map-and-booking {
+        display: block;
+    }
+
+    figure {
+        display: block;
+    }
+
+    figcaption {
+        padding-right: 0;
+        padding-bottom: 10px;
+    }
+
+    figure img {
+        width:  100%;
+    }
+
+    #signature {
+        margin: auto;
+    }
+}
